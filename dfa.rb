@@ -10,7 +10,8 @@ class DFA
         if nowMap.has_key? c
           nowMap = nowMap[c]
         else
-          child = Hash.new("end" => 0)
+          child = Hash.new
+          child["end"] = 0
           nowMap[c] = child
           nowMap = nowMap[c]
         end
@@ -27,7 +28,7 @@ class DFA
   else
     puts "file not exists!"
   end
-
+  puts @@sensitiveMap
 
   class << DFA
     def testWord(word)
@@ -44,6 +45,8 @@ class DFA
               nowMap = nowMap[c]
               if nowMap['end'] == 1
                 words.push theword
+              else
+                puts nowMap['end']
               end
             else
               break
