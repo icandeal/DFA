@@ -28,7 +28,6 @@ class DFA
   else
     puts "file not exists!"
   end
-  puts @@sensitiveMap
 
   class << DFA
     def testWord(word)
@@ -45,8 +44,6 @@ class DFA
               nowMap = nowMap[c]
               if nowMap['end'] == 1
                 words.push theword
-              else
-                puts nowMap['end']
               end
             else
               break
